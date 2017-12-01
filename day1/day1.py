@@ -1,8 +1,6 @@
 with open('input.txt') as f:
   inpt = f.read().rstrip()
-
-l = len(inpt)
-print(l)
+  l = len(inpt)
 
 s = 0
 for i in range(l):
