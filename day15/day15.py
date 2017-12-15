@@ -10,13 +10,12 @@ def b_update(n):
 
 N = 40000000
 count = 0
+a_tmp = a
+b_tmp = b
 for i in range(N):
-  if (i % 100000) == 0:
-    print(i)
-  a = a_update(a)
-  b = b_update(b)
-
-  if (a & 0xffff) == (b & 0xffff):
+  a_tmp = a_update(a_tmp)
+  b_tmp = b_update(b_tmp)
+  if (a_tmp & 0xffff) == (b_tmp & 0xffff):
     count += 1
 
 print(count)
@@ -24,21 +23,18 @@ print(count)
 
 N = 5000000
 count = 0
+a_tmp = a
+b_tmp = b
 for i in range(N):
-  if (i % 100000) == 0:
-    print(i)
-
   while True:
-    a = a_update(a)
-    if (a % 4) == 0:
+    a_tmp = a_update(a_tmp)
+    if (a_tmp % 4) == 0:
       break
-
   while True:
-    b = b_update(b)
-    if (b % 8) == 0:
+    b_tmp = b_update(b_tmp)
+    if (b_tmp % 8) == 0:
       break
-
-  if (a & 0xffff) == (b & 0xffff):
+  if (a_tmp & 0xffff) == (b_tmp & 0xffff):
     count += 1
 
 print(count)
